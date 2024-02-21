@@ -9,8 +9,12 @@
   
 <body> 
     <script> 
-        document.write("Hello World") 
+    function myFunction() {
+        document.getElementById("first").setAttribute("src", "Images/cat2.jpg")
+    }
     </script> 
+    <img src="Images/cat1.jpeg" id="first">
+    <button onclick="myFunction()">Click me</button> 
 </body> 
   
 </html>
