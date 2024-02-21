@@ -4,17 +4,55 @@
 <head> 
     <script src="main.js"> 
        // External JavaScript Code 
-    </script> 
+    </script>
+    <style>
+        body{
+            background-color: darkslategrey;
+            color: white;
+        }
+    </style>
 </head> 
   
-<body> 
+<body>
+    <div id="frame">
+        <img src="Images/cat1.jpeg" id="first">
+        <button onclick="myFunction('b1')" id="b1">0</button> 
+        <button onclick="myFunction('b2')" id="b2">1</button>
+    </div>
+
     <script> 
-    function myFunction() {
-        document.getElementById("first").setAttribute("src", "Images/cat2.jpg")
+    const nums = ['Balinese', 'Bengal Cat Breed', 'Birman', 'British Shorthair', 'Burmese', 'Burmilla', 'Chinchilla', 'Cornish Rex', 'Devon Rex', 'Moggie', 'Exotic Shorthair', 'Japanese Bobtail', 'Korat', 'Maine Coon', 'Manx', 'Norwegian Forest', 'Ocicat', 'Oriental Shorthair', 'Persian Cat Breed', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese Cat Breed', 'Siberian Forest', 'Singapura', 'Snowshoe', 'Somali', 'Sphynx', 'Tiffanie', 'Tonkinese', 'Turkish Van']
+    let l = nums.length
+    let i = 1
+    let fav = 0
+    let b1_holds_fav = true
+
+    document.getElementById("b1").innerText = nums[0]
+    document.getElementById("b2").innerText = nums[1]
+
+    function myFunction(arg) {
+        if(arg == "b1" && !b1_holds_fav || arg == "b2" && b1_holds_fav){
+            b1_holds_fav = !b1_holds_fav
+            fav = i
+        }
+
+        if(i>=l-1){
+            document.getElementById("frame").innerHTML = "Congrats!! " + nums[fav] + " is your fav cat"
+        }
+
+        i+=1
+        if(b1_holds_fav){
+            document.getElementById("b1").innerText = nums[fav]
+            document.getElementById("b2").innerText = nums[i]
+        }
+        else{
+            document.getElementById("b1").innerText = nums[i]
+            document.getElementById("b2").innerText = nums[fav]
+        }
+
     }
     </script> 
-    <img src="Images/cat1.jpeg" id="first">
-    <button onclick="myFunction()">Click me</button> 
+
 </body> 
   
 </html>
