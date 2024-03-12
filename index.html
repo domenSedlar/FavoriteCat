@@ -2,22 +2,68 @@
 <html> 
   
 <head> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
     <script src="main.js"> 
        // External JavaScript Code 
     </script>
+
     <style>
+
         body{
-            background-color: darkslategrey;
-            color: white;
-        }
+    background-color: darkslategrey;
+    font-family: "Luckiest Guy", cursive;
+    /*display: flex;*/
+}
+
+.frames{
+    box-sizing: border-box;
+    position: relative;
+    background-color: white;
+    float: left;
+    margin: 4vh 2vw;
+    border-radius: 7%;
+    padding: 4vh;
+    width: 44vw;
+    height: 84vh;
+}
+
+#second{
+    background-color: blueviolet;
+}
+
+img {
+    width: 47%;
+}
+
+
     </style>
+
 </head> 
   
 <body>
+    <center><h1>Pick the cutest cat :)</h1></body><center>
     <div id="frame">
-        <img src="Images/cat1.jpeg" id="first">
-        <button onclick="myFunction('b1')" id="b1">0</button> 
-        <button onclick="myFunction('b2')" id="b2">1</button>
+        <div class="frames" id="first">
+            <img src="Images/cat1.jpeg" id="l-cat-0">
+            <img src="Images/cat1.jpeg" id="l-cat-1">
+            <img src="Images/cat1.jpeg" id="l-cat-2">
+            <img src="Images/cat1.jpeg" id="l-cat-3">
+
+            <button onclick="myFunction('b1')" id="b1">0</button> 
+            <center><h2 id="l-breed">Cat breed</h2></center>
+        </div>
+        <div class="frames" id="second">
+            <img src="Images/cat1.jpeg" id="d-cat-0">
+            <img src="Images/cat1.jpeg" id="d-cat-1">
+            <img src="Images/cat1.jpeg" id="d-cat-2">
+            <img src="Images/cat1.jpeg" id="d-cat-3">
+            <center><h2 id="r-breed">Cat breed</h2></center>
+
+            <button onclick="myFunction('b2')" id="b2">1</button>
+        </div>
     </div>
 
     <script> 
@@ -43,14 +89,27 @@
         i+=1
         if(b1_holds_fav){
             document.getElementById("b1").innerText = nums[fav]
+            document.getElementById("l-breed").innerText = nums[fav]
+
             document.getElementById("b2").innerText = nums[i]
+            document.getElementById("r-breed").innerText = nums[i]
+
         }
         else{
             document.getElementById("b1").innerText = nums[i]
+            document.getElementById("l-breed").innerText = nums[i]
+
             document.getElementById("b2").innerText = nums[fav]
+            document.getElementById("r-breed").innerText = nums[fav]
         }
 
     }
+
+    const first_div = document.querySelector("#first");
+    first_div.addEventListener("click", ev => myFunction("b1"), 500)
+    
+    const second_div = document.querySelector("#second");
+    second_div.addEventListener("click", ev => myFunction("b1"), 500)   
     </script> 
 
 </body> 
