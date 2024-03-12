@@ -16,28 +16,34 @@
     background-color: darkslategrey;
     font-family: "Luckiest Guy", cursive;
     /*display: flex;*/
-}
+    }
 
-.frames{
-    box-sizing: border-box;
-    position: relative;
-    background-color: white;
-    float: left;
-    margin: 4vh 2vw;
-    border-radius: 7%;
-    padding: 4vh;
-    width: 44vw;
-    height: 84vh;
-}
+    .frames{
+        box-sizing: border-box;
+        position: relative;
+        background-color: white;
+        float: left;
+        margin: 2vh 1vw;
+        border-radius: 7%;
+        padding: 3vh;
+        width: 46vw;
+        height: 86vh;
+    }
 
-#second{
-    background-color: blueviolet;
-}
+    #second{
+        background-color: blueviolet;
+    }
 
-img {
-    width: 47%;
-}
+    img{
+        max-width: 45%;
+        max-height: 45%;
+    }
 
+    .why{
+        position: absolute;
+        right: 20%;
+        bottom: 2px;
+    }
 
     </style>
 
@@ -46,23 +52,24 @@ img {
 <body>
     <center><h1>Pick the cutest cat :)</h1></body><center>
     <div id="frame">
+        
         <div class="frames" id="first">
-            <img src="Images/cat1.jpeg" id="l-cat-0">
-            <img src="Images/cat1.jpeg" id="l-cat-1">
-            <img src="Images/cat1.jpeg" id="l-cat-2">
-            <img src="Images/cat1.jpeg" id="l-cat-3">
-
-            <button onclick="myFunction('b1')" id="b1">0</button> 
+                <img src="Images/cat1.jpeg" id="l-cat-0">
+                <img src="Images/cat1.jpeg" id="l-cat-1">
+                <img src="Images/cat1.jpeg" id="l-cat-2">
+                <img src="Images/cat1.jpeg" id="l-cat-3">
+            <div class="why">
             <center><h2 id="l-breed">Cat breed</h2></center>
+            </div>
         </div>
         <div class="frames" id="second">
-            <img src="Images/cat1.jpeg" id="d-cat-0">
-            <img src="Images/cat1.jpeg" id="d-cat-1">
-            <img src="Images/cat1.jpeg" id="d-cat-2">
-            <img src="Images/cat1.jpeg" id="d-cat-3">
-            <center><h2 id="r-breed">Cat breed</h2></center>
-
-            <button onclick="myFunction('b2')" id="b2">1</button>
+                <img src="Images/cat1.jpeg" id="d-cat-0">
+                <img src="Images/cat1.jpeg" id="d-cat-1">
+                <img src="Images/cat1.jpeg" id="d-cat-2">
+                <img src="Images/cat1.jpeg" id="d-cat-3">
+                <div class="why">
+                    <center><h2 id="r-breed">Cat breed</h2></center>
+                </div>
         </div>
     </div>
 
@@ -73,8 +80,17 @@ img {
     let fav = 0
     let b1_holds_fav = true
 
-    document.getElementById("b1").innerText = nums[0]
-    document.getElementById("b2").innerText = nums[1]
+    document.getElementById("l-breed").innerText = nums[0]
+    document.getElementById("l-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[0])
+    document.getElementById("l-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[0])
+    document.getElementById("l-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[0])
+    document.getElementById("l-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[0])
+
+    document.getElementById("r-breed").innerText = nums[i]
+    document.getElementById("d-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[1])
+    document.getElementById("d-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[1])
+    document.getElementById("d-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[1])
+    document.getElementById("d-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[1])
 
     function myFunction(arg) {
         if(arg == "b1" && !b1_holds_fav || arg == "b2" && b1_holds_fav){
@@ -88,19 +104,30 @@ img {
 
         i+=1
         if(b1_holds_fav){
-            document.getElementById("b1").innerText = nums[fav]
             document.getElementById("l-breed").innerText = nums[fav]
+            document.getElementById("l-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[fav])
+            document.getElementById("l-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[fav])
+            document.getElementById("l-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[fav])
+            document.getElementById("l-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[fav])
 
-            document.getElementById("b2").innerText = nums[i]
             document.getElementById("r-breed").innerText = nums[i]
-
+            document.getElementById("d-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[i])
+            document.getElementById("d-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[i])
+            document.getElementById("d-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[i])
+            document.getElementById("d-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[i])
+            
         }
         else{
-            document.getElementById("b1").innerText = nums[i]
             document.getElementById("l-breed").innerText = nums[i]
-
-            document.getElementById("b2").innerText = nums[fav]
+            document.getElementById("l-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[i])
+            document.getElementById("l-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[i])
+            document.getElementById("l-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[i])
+            document.getElementById("l-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[i])
             document.getElementById("r-breed").innerText = nums[fav]
+            document.getElementById("r-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[fav])
+            document.getElementById("r-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[fav])
+            document.getElementById("r-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[fav])
+            document.getElementById("r-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[fav])
         }
 
     }
@@ -109,7 +136,7 @@ img {
     first_div.addEventListener("click", ev => myFunction("b1"), 500)
     
     const second_div = document.querySelector("#second");
-    second_div.addEventListener("click", ev => myFunction("b1"), 500)   
+    second_div.addEventListener("click", ev => myFunction("b2"), 500)   
     </script> 
 
 </body> 
