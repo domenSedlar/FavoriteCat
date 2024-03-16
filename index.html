@@ -69,6 +69,10 @@
             max-width: 70vw;
             max-height: 80vw;
         }
+
+    #undo{
+        cursor: pointer;
+    }
     </style>
 
 </head> 
@@ -97,10 +101,11 @@
                     </div>
             </div>
         </div>
+        <div id="undo"><h1>Previous</h1></div>
     </div>
 
     <script> 
-    const nums = ['Balinese', 'Bengal Cat Breed', 'Birman', 'British Shorthair', 'Burmese', 'Burmilla', 'Chinchilla', 'Cornish Rex', 'Devon Rex', 'Moggie', 'Exotic Shorthair', 'Japanese Bobtail', 'Korat', 'Maine Coon', 'Manx', 'Norwegian Forest', 'Ocicat', 'Oriental Shorthair', 'Persian Cat Breed', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese Cat Breed', 'Siberian Forest', 'Singapura', 'Snowshoe', 'Somali', 'Sphynx', 'Tiffanie', 'Tonkinese', 'Turkish Van']
+    const nums = ['Balinese', 'Bengal Cat Breed', 'Birman', 'British Shorthair', 'Burmese', 'Burmilla', 'Chinchilla', 'Cornish Rex', 'Devon Rex', 'Moggie', 'Exotic Shorthair', 'Japanese Bobtail', 'Korat', 'Maine Coon', 'Manx', 'Norwegian Forest', 'Ocicat', 'Oriental Shorthair', 'Persian Cat Breed', 'Ragdoll', 'Russian Blue', 'Cat Boy', 'Scottish Fold', 'Siamese Cat Breed', 'Siberian Forest', 'Singapura', 'Snowshoe', 'Somali', 'Sphynx', 'Tiffanie', 'Tonkinese', 'Turkish Van']
     let l = nums.length
     let i = 1
     let fav = 0
@@ -158,11 +163,47 @@
 
     }
 
+    function pre(){
+
+        i-=1
+        if(i <= 0){
+            i = 0
+        }
+        if(b1_holds_fav){
+            document.getElementById("l-breed").innerText = nums[fav]
+            document.getElementById("l-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[fav])
+            document.getElementById("l-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[fav])
+            document.getElementById("l-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[fav])
+            document.getElementById("l-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[fav])
+
+            document.getElementById("r-breed").innerText = nums[i]
+            document.getElementById("d-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[i])
+            document.getElementById("d-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[i])
+            document.getElementById("d-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[i])
+            document.getElementById("d-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[i])
+            
+        }
+        else{
+            document.getElementById("l-breed").innerText = nums[i]
+            document.getElementById("l-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[i])
+            document.getElementById("l-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[i])
+            document.getElementById("l-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[i])
+            document.getElementById("l-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[i])
+            document.getElementById("r-breed").innerText = nums[fav]
+            document.getElementById("r-cat-0").setAttribute("src", "CatBreeds/cat-0-" + nums[fav])
+            document.getElementById("r-cat-1").setAttribute("src", "CatBreeds/cat-1-" + nums[fav])
+            document.getElementById("r-cat-2").setAttribute("src", "CatBreeds/cat-2-" + nums[fav])
+            document.getElementById("r-cat-3").setAttribute("src", "CatBreeds/cat-3-" + nums[fav])
+        }
+    }
+
     const first_div = document.querySelector("#first");
     first_div.addEventListener("click", ev => myFunction("b1"), 500)
     
     const second_div = document.querySelector("#second");
-    second_div.addEventListener("click", ev => myFunction("b2"), 500)   
+    second_div.addEventListener("click", ev => myFunction("b2"), 500)
+    const u = document.querySelector("#undo");
+    u.addEventListener("click", ev => pre(), 500)   
     </script> 
 
 </body> 
