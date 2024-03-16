@@ -7,4 +7,4 @@ Thats when this project started, to allow everyone to find the breed for them.
 - And double click on the index.html
 - Enjoy
 
-![[Pasted image 20240316221920.png]]
+![a picture of the website](./img.png)
